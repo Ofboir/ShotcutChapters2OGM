@@ -3,18 +3,17 @@ Simple script used to convert chapters created in [Shotcut](https://www.shotcut.
 The output file is created only with [MKVToolNix](MKVToolNix) in mind. It has not been tested with other tools.
 
 ## Usage
-ShotcutChapters2OGM.py [-h] [-o OUTPUT] [-f FPS] input
+    ShotcutChapters2OGM.py [-h] [-o OUTPUT] [-f FPS] input
 
-Converts chapters exported from Shotcut (txt) to OGM format (txt).
+    Converts chapters exported from Shotcut (txt) to OGM format (txt).
 
-positional arguments:
-  input                 Input file.
+    positional arguments:
+      input                         Input file.
 
-options:
-  -h, --help            show this help message and exit
-  -o OUTPUT, --output OUTPUT
-                        Output file.
-  -f FPS, --fps FPS     Video FPS (default=30).
+    options:
+      -h, --help                    show this help message and exit
+      -o OUTPUT, --output OUTPUT    Output file.
+      -f FPS, --fps FPS             Video FPS (default=30).
 
 ## How to use with Shotcut and MKVToolNix
 

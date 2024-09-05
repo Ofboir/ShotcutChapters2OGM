@@ -39,11 +39,9 @@ class ShotcutChapters2OGM:
         # Input format : {Timestamp} {Title}
         match = re.match("([\d:]+)\s(.+)", text, re.UNICODE)
         if (match):
-            numberinstring = f'{self.chapternumber:02d}'
-
             # Timestamp format is HH:MM:SS:FF (FF = frames)
             timestamp = match.group(1)
-            timestampmatch = re.fullmatch("(\d{2}:\d{2}):(\d{2}):(\d{2})", timestamp)
+            timestampmatch = re.fullmatch("(\d+:\d{2}):(\d{2}):(\d{2})", timestamp)
             if timestampmatch:
                 hhmm = timestampmatch.group(1)
                 seconds = int(timestampmatch.group(2))
@@ -61,9 +59,10 @@ class ShotcutChapters2OGM:
                     if timestampmatch:
                         timestamp = "{}:{:012.9f}".format(timestamp, 0)
 
-            converted.append("CHAPTER{}={}".format(numberinstring, timestamp))
+            chapternumber_as_string = f'{self.chapternumber:02d}'
+            converted.append("CHAPTER{}={}".format(chapternumber_as_string, timestamp))
             converted.append("\n")
-            converted.append("CHAPTER{}NAME={}".format(numberinstring, match.group(2)))
+            converted.append("CHAPTER{}NAME={}".format(chapternumber_as_string, match.group(2)))
             converted.append("\n")
         else:
             print("Unknown format: {}".format(text))
